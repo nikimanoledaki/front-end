@@ -15,6 +15,10 @@ var request      = require("request")
   , metrics      = require("./api/metrics")
   , app          = express()
 
+  app.get("/color.json", function (req, res, next) {
+      var color = process.env.COLOUR
+      res.send(`{ "color": "#${color}" }`);
+  });
 
 app.use(helpers.rewriteSlash);
 app.use(metrics);

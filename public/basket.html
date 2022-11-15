@@ -434,6 +434,15 @@ _________________________________________________________ -->
             }
         });
 
+
+        $.getJSON("/color.json", function (data) {
+          if (data.status_code !== 500) {
+            console.log(data)
+            $("body")
+              .css("background-color", data.color);
+          }
+        });
+
         $.getJSON('/address', function(data) {
             if (data.status_code !== 500) {
                 var text = data.number + " ";
